@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="AppMobileJobChannel.OffresPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AppMobileJobChannel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loading="Page_Loading" Unloaded="Page_Unloaded">
+    
+    <Page.BottomAppBar>
+        <CommandBar IsSticky="True" Background="LightSkyBlue">
+            <AppBarButton x:Name="mnuRafraichir" x:Uid="OffresPage_MnuRaf" Icon="Refresh" Label="Lec" Click="mnuRafraichir_Click" />
+            <AppBarButton x:Name="mnuFermer" x:Uid="OffresPage_MnuFer" Icon="Back" Label="Fer" Click="mnuFermer_Click" />
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Margin="10,0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Name="lblTitre1" Grid.Row="0" x:Uid="OffresPage_Titre" Text="Titre" Style="{StaticResource StyleTitre}"/>
+        <ListView x:Name="lstOffres" Grid.Row="1" ItemsSource="{Binding Offres}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Titre}" Style="{StaticResource StyleItemList}"/>
+                        <TextBlock Text="{Binding Detail}" Style="{StaticResource StyleItemList}"/>
+                        <TextBlock Text="{Binding Region}" Style="{StaticResource StyleItemList}"/>
+                        <TextBlock Text="{Binding Contrat}" Style="{StaticResource StyleItemList}"/>
+                        <TextBlock Text="{Binding Poste}" Style="{StaticResource StyleItemList}"/>
+                        <TextBlock Text="{Binding DatePublication}" Style="{StaticResource StyleItemList}"/>
+                        <TextBlock Text="{Binding Lien}" Style="{StaticResource StyleItemList}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Background" Value="LightSkyBlue"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        
+    </Grid>
+
+</Page>
