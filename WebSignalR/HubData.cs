@@ -39,14 +39,14 @@ namespace WebSignalR
         public async override Task OnConnectedAsync()
         {
             _connectionCount++;
-            //await Clients.All.HubConnectionsCount(_connectionCount);
+            await Clients.All.HubConnectionsCount(_connectionCount);
             await base.OnConnectedAsync();
         }
 
         public async override Task OnDisconnectedAsync(Exception exception)
         {
             _connectionCount--;
-            //await Clients.All.HubConnectionsCount(_connectionCount);
+            await Clients.All.HubConnectionsCount(_connectionCount);
             await base.OnDisconnectedAsync(exception);
         }
         #endregion

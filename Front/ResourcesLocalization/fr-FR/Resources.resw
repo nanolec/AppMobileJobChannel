@@ -150,6 +150,12 @@
   <data name="MainPage_Titre.Text" xml:space="preserve">
     <value>Liste des Offres</value>
   </data>
+  <data name="OffresPage_BtConnect.Text" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="OffresPage_BtDisconnect.Text" xml:space="preserve">
+    <value>Déconnexion</value>
+  </data>
   <data name="OffresPage_MnuFer.Label" xml:space="preserve">
     <value>Fermer</value>
   </data>

@@ -2,19 +2,20 @@
 using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AppMobileJobChannel
 {
     class OffresM
     {
+        // Evenement qui permet de notifier le ViewModel que l'on a reçu un message du serveur
+        public event EventHandler ConnectionsCount;
+
         private static volatile OffresM instance;
-        private static readonly object syncRoot = new object();
+        private static readonly object syncRoot = new Object();
         private HubConnection _connection;
 
-        private OffresM() { }
+        private OffresM() { } // Singleton = constructeur privé
 
         /// <summary>
         /// Propriété static pour créer l'instance
@@ -37,6 +38,18 @@ namespace AppMobileJobChannel
             }
         }
 
+        public bool IsConnected 
+        {
+            get { return _connection?.State == HubConnectionState.Connected; }
+        }
+
+        private int _count;
+        public int Count 
+        {
+            get { return _count; }
+            private set { _count = value; }
+        }
+
         public async Task ConnectAsync(string hubAddress)
         {
             // Le builder permet de créér la connexion
@@ -48,6 +61,15 @@ namespace AppMobileJobChannel
 
             // Création de la connexion
             _connection = builder.Build();
+
+            // Abonnement a la connexion
+            _connection.On<int>("HubConnectionsCount", (int count) =>
+            {
+                Count = count;
+
+                // On émet l'événement 'ConnectionsCount' pour le ViewModel
+                ConnectionsCount?.Invoke(this, new EventArgs());
+            });
 
             // Ouverture de la connexion avec le Hub
             await _connection.StartAsync();
@@ -69,7 +91,7 @@ namespace AppMobileJobChannel
         /// <returns></returns>
         public async Task<List<Offre>> GetOffres()
         {
-            return await _connection.InvokeAsync<List<Offre>>("GetOffres");
+            return await _connection.InvokeAsync<List<Offre>>(nameof(GetOffres));
         }
     }
 }

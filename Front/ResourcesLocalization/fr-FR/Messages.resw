@@ -117,12 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="MSG_ERRORCONNECT" xml:space="preserve">
+    <value>Erreur inattendue de liaison avec le serveur</value>
+  </data>
   <data name="MSG_PARAM" xml:space="preserve">
     <value>Pour commencer, vous devez saisir votre nom et votre prénom !
 Rendez vous sur la page Paramètres.</value>
   </data>
   <data name="NouveauTexte" xml:space="preserve">
     <value>Mon nouveau texte</value>
+  </data>
+  <data name="TITLE_ERRORCONNECT" xml:space="preserve">
+    <value>Erreur de connexion</value>
   </data>
   <data name="TITLE_PARAM" xml:space="preserve">
     <value>Saisir les paramètres</value>

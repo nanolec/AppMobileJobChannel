@@ -21,7 +21,7 @@ namespace AppMobileJobChannel
             ///Envois un évènement qui dit qu'une propriétée a été modifiée
             ///le ? rend nullable >>> Pas d'exeption si PropertyChanged est nulll
             ///Appel le Invoke que si PropertyChanged n'est pas null
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("propertyName"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
             /// Autre façon de l'écrire
             //if (PropertyChanged != null)
@@ -29,5 +29,10 @@ namespace AppMobileJobChannel
             //    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("propertyName"));
             //}
         }
+
+        /// <summary>
+        /// Méthode appelée à la fermeture de la View
+        /// </summary>
+        public virtual void Close() { }
     }
 }
