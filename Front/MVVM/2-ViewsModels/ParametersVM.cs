@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,6 +54,12 @@ namespace AppMobileJobChannel
             }
         }
 
+        public Offre _offre = ParametersM.Instance.Offre;
+        public Offre Offre
+        {
+            get { return _offre; }
+        }
+
         /// <summary>
         /// Sauvegarde des paramètres dans le Model. ils ne seront vraiment sauvegardés (sérialisés)
         /// qu'a la fermeture de l'application (événement 'OnSuspending' de la classe App)
@@ -62,6 +69,7 @@ namespace AppMobileJobChannel
             ParametersM.Instance.Nom = _nom;
             ParametersM.Instance.Prenom = _prenom;
             ParametersM.Instance.HubAdress = _hubAdress;
+            ParametersM.Instance.Offre = _offre;
         }
     }
 }
