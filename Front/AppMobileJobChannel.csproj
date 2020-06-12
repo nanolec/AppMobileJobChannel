@@ -249,6 +249,12 @@
       <Name>BusinessObjects</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="ResourcesLocalization\en-US\Messages.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="ResourcesLocalization\en-US\Resources.resw" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

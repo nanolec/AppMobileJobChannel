@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace WebSignalR
 {
-    public interface IDAO
+    public interface IRegionDAO
     {
-        List<Offre> GetOffres();
-
+        Region FindRegionByID(int RegionId);
+        List<Region> GetAllRegions();
     }
 }

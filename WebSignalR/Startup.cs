@@ -20,7 +20,8 @@ namespace WebSignalR
             services.AddSignalR();
 
             // Construction d'un singleton de type IDAO en créant une DAO
-            services.AddSingleton<IDAO>(new DAO());
+            //services.AddSingleton<IDAO>(new DAO());
+            services.AddSingleton<DAO>(new DAO());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

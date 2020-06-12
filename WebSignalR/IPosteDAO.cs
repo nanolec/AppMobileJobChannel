@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace WebSignalR
 {
-    public interface IDAO
+    public interface IPosteDAO
     {
-        List<Offre> GetOffres();
-
+        Poste FindPosteByID(int PosteId);
+        List<Poste> GetAllPostes();
     }
 }
