@@ -18,22 +18,22 @@ namespace AppMobileJobChannel
         public string Prenom { get => ParametersM.Instance.Prenom; }
         public string HubAdress { get => ParametersM.Instance.HubAdress; }
 
-        private string _offre = "Mon Offre";
+        private string _offre  = "Mon Offre";
         private string _detail = "Ma déscription";
         private string _region = "Ma région";
         private string _contrat = "Mon contrat";
         private string _poste = "Ma poste";
         private string _datePublication = "Ma date de publication";
-        private string _lien = "Mon lien";
+        private string _lien = "Mon lien"; 
 
         public string Offre
         {
-            get
-            {
-                return _offre;
+            get 
+            { 
+                return _offre; 
             }
-            set
-            {
+            set 
+            { 
                 _offre = value;
                 RaisePropertyChanged();
             }
@@ -113,5 +113,3 @@ namespace AppMobileJobChannel
 
     }
 }
-
-

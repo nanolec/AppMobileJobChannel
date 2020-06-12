@@ -1,6 +1,9 @@
-﻿using BusinessObjects;
-using Newtonsoft.Json;
+﻿ using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Windows.Storage;
 
 namespace AppMobileJobChannel
@@ -39,7 +42,6 @@ namespace AppMobileJobChannel
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string HubAdress { get; set; }
-        public Offre Offre { get; set; }
 
         public void Save() => ApplicationData.Current.LocalSettings.Values[KEY_PARAMETERS] = JsonConvert.SerializeObject(this);
     }
