@@ -57,11 +57,11 @@
             </Button>
         </StackPanel>
 
-        <ListView x:Name="lstOffres" Grid.Row="2" ItemsSource="{Binding Offres}">
+        <ListView x:Name="lstOffres" Grid.Row="2" ItemsSource="{Binding Offres}" SelectedItem="{Binding SelectedOffre, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Titre}" Style="{StaticResource StyleItemList}"/>
+                        <TextBlock Text="{Binding Nom}" Style="{StaticResource StyleItemList}"/>
                         <TextBlock Text="{Binding Detail}" Style="{StaticResource StyleItemList}"/>
                         <TextBlock Text="{Binding Region}" Style="{StaticResource StyleItemList}"/>
                         <TextBlock Text="{Binding Contrat}" Style="{StaticResource StyleItemList}"/>

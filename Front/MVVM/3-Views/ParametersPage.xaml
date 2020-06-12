@@ -22,6 +22,8 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+
 
         </Grid.RowDefinitions>
 
@@ -29,7 +31,15 @@
         <TextBox Name="txtNom" Grid.Row="1" x:Uid="ParametersPage_Nom" Text="{Binding Nom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource StyleDefautText}"/>
         <TextBox Name="txtPrenom" Grid.Row="2" x:Uid="ParametersPage_Prenom" Text="{Binding Prenom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource StyleDefautText}"/>
         <TextBox Name="txtAdress" Grid.Row="3" x:Uid="ParametersPage_Adress" Text="{Binding HubAdress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource StyleDefautText}"/>
-
+        <TextBlock Name="lblOffreSelect" Grid.Row="4" >
+            <Run x:Uid="ParametersPage_OffreSelect" Text="Last select" FontWeight="Bold"/>
+            <Run Text=" - " FontWeight="Bold"/>
+            <Run Text="{Binding Offre.Nom}"/>
+            <Run Text=" "/>
+            <Run Text="{Binding Offre.Detail}"/>
+            <Run Text=" "/>
+            <Run Text="{Binding Offre.DatePublication}"/>
+        </TextBlock>
     </Grid>
 
 </Page>

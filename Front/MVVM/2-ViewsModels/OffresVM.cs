@@ -80,6 +80,21 @@ namespace AppMobileJobChannel
         }
 
         /// <summary>
+        /// Gestion de l'Offre sélectionnée
+        /// </summary>
+        public Offre SelectedOffre
+        {
+            get { return ParametersM.Instance.Offre; }
+            set
+            {
+                // Sauvegarde de l'Offre dans les paramètres
+                ParametersM.Instance.Offre = value;
+                RaisePropertyChanged();
+            }
+
+        }
+
+        /// <summary>
         /// Gestion nombre de connexions
         /// </summary>
         private int _connectionCount;
@@ -157,14 +172,35 @@ namespace AppMobileJobChannel
             try
             {
                 List<Offre> lst = await OffresM.Instance.GetOffres();
+
+                // Suppression des Offres qui n'existent plus
+                for (int i = Offres.Count - 1; i >= 0; i--)
+                {
+                    if (!lst.Contains(Offres[i]))
+                    {
+                        Offres.RemoveAt(i);
+                    }
+                }
+
+                // Ajout de nouvelles Offres
+                foreach (Offre item in lst)
+                {
+                    if (!Offres.Contains(item))
+                    {
+                        Offres.Add(item);
+                    }
+                }
+                // On force la View à relire la propriété "SelectedOffre"
+                RaisePropertyChanged(nameof(SelectedOffre));
+
                 // On récupère les Offres dans la collection Offres qui est de type 'ObservableCollection<Offre>'
-                Offres.Clear();
+                //Offres.Clear();
                 //foreach (Offre item in lst)
                 //{
                 //    Offres.Add(item);
                 //}
                 // linq
-                lst.ForEach(x => Offres.Add(x));
+                //lst.ForEach(x => Offres.Add(x));
                 return true;
             }
             catch (Exception)
